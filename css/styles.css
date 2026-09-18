@@ -10,8 +10,6 @@
 .seccion--crema{background:var(--crema-claro)}
 
 .seccion__head{max-width:46rem;margin:0 auto clamp(2rem,4vw,3rem);text-align:center}
-.seccion__head--con-controles{display:flex;align-items:flex-end;justify-content:space-between;gap:1.5rem;max-width:none;text-align:left}
-.seccion__head--con-controles > div{max-width:38rem}
 .seccion__intro{color:var(--tinta-suave);font-size:1.08rem;margin:0}
 
 /* Etiqueta tipo píldora que abre cada sección */
@@ -36,6 +34,14 @@
 }
 .dos-columnas__media{position:relative}
 .foto-redonda{width:100%;height:auto;border-radius:var(--r-xl);box-shadow:var(--sombra-alta);border:6px solid #fff}
+/* Las fotos reales son verticales (retrato); por debajo de escritorio la
+   columna ocupa todo el ancho y una foto vertical a ese ancho se ve
+   desproporcionadamente alta, así que se limita y centra el contenedor
+   (no sólo la imagen, para que las mascotas flotantes sigan pegadas
+   a sus esquinas). */
+@media (max-width:1024px){
+  .dos-columnas__media,.hero__media{max-width:420px;margin-inline:auto}
+}
 /* El voladizo lateral no debe superar los 20px del margen del contenedor,
    o la mascota provoca desbordamiento horizontal en tablet. */
 .mascota-flotante{position:absolute;left:-18px;bottom:-22px;width:86px;filter:drop-shadow(0 8px 14px rgba(30,42,50,.18))}
@@ -80,34 +86,15 @@
 .banda-extra .btn{flex:none}
 
 /* ----------------------- 4. Reel de videos 9:16 --------------------- */
-.carrusel__controles{display:flex;gap:.6rem;flex:none}
-.ctrl{width:52px;height:52px;border-radius:50%;border:2.5px solid var(--tinta);background:#fff;color:var(--tinta);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .2s,color .2s,transform .2s}
-.ctrl svg{width:22px;height:22px}
-.ctrl .gira{transform:rotate(180deg)}
-.ctrl:hover{background:var(--tinta);color:#fff}
-.ctrl:disabled{opacity:.3;cursor:default}
-.ctrl:disabled:hover{background:#fff;color:var(--tinta)}
-@media (max-width:640px){
-  .seccion__head--con-controles{flex-direction:column;align-items:flex-start}
-  .carrusel__controles{display:none} /* en móvil se desliza con el dedo */
-}
-
-.reel{overflow:hidden;padding-block:.5rem}
-.reel__pista{display:flex;gap:1.1rem;overflow-x:auto;scroll-snap-type:x proximity;scroll-behavior:smooth;padding:.5rem max(1.25rem,calc(50vw - 590px)) 1.5rem;scroll-padding-inline:max(1.25rem,calc(50vw - 590px));
-  /* Oculta la barra de scroll sin perder el gesto de deslizar */
-  scrollbar-width:none;-ms-overflow-style:none}
-.reel__pista::-webkit-scrollbar{display:none}
-.reel__item{flex:0 0 auto;width:min(74vw,260px);scroll-snap-align:start}
-@media (min-width:640px){.reel__item{width:280px}}
+.reel{padding-block:.5rem}
+.reel__pista{display:grid;grid-template-columns:repeat(2,1fr);gap:1.1rem;padding:.5rem max(1.25rem,calc(50vw - 590px)) 1.5rem}
+@media (min-width:700px){.reel__pista{grid-template-columns:repeat(4,1fr)}}
 .reel__video{position:relative;aspect-ratio:9/16;border-radius:var(--r-lg);overflow:hidden;background:var(--crema);box-shadow:var(--sombra);border:5px solid #fff}
 .reel__video video{width:100%;height:100%;object-fit:cover;display:block}
-.reel__play{position:absolute;inset:0;width:100%;height:100%;border:0;background:rgba(30,42,50,.18);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:opacity .25s ease,background-color .25s ease}
-.reel__play svg{width:34px;height:34px;background:rgba(220,43,67,.95);border-radius:50%;padding:16px;box-sizing:content-box;box-shadow:0 8px 20px rgba(0,0,0,.28)}
-.reel__play:hover{background:rgba(30,42,50,.3)}
-/* Cuando el video está reproduciéndose, el botón se esconde pero sigue siendo
-   accesible por teclado (sólo se vuelve invisible al puntero). */
-.reel__video.reproduciendo .reel__play{opacity:0;pointer-events:none}
-.reel__video.reproduciendo .reel__play:focus-visible{opacity:1;pointer-events:auto}
+.reel__sonido{position:absolute;right:.6rem;bottom:.6rem;width:42px;height:42px;border:0;border-radius:50%;background:rgba(30,42,50,.55);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;transition:background-color .2s,transform .2s}
+.reel__sonido svg{width:20px;height:20px}
+.reel__sonido:hover{background:rgba(30,42,50,.78);transform:scale(1.06)}
+.reel__sonido[aria-pressed="true"]{background:var(--coral)}
 .reel__titulo{text-align:center;font-weight:700;margin:.9rem 0 0;font-size:.98rem}
 .reel__pie{display:flex;justify-content:center;margin-top:.5rem}
 
@@ -125,6 +112,8 @@
 @media (min-width:768px){.grid-testimonios{grid-template-columns:repeat(3,1fr)}}
 .tarjeta--testimonio{margin:0;background:var(--crema);display:flex;flex-direction:column}
 .comillas{width:38px;height:38px;color:var(--coral);margin-bottom:.6rem}
+.testimonio__estrellas{display:flex;gap:.2rem;margin:-.4rem 0 .7rem;color:var(--amarillo)}
+.testimonio__estrellas svg{width:16px;height:16px}
 .tarjeta--testimonio blockquote{margin:0 0 1.2rem;font-size:1.03rem;line-height:1.6}
 .tarjeta--testimonio blockquote p{margin:0}
 .tarjeta--testimonio figcaption{display:flex;align-items:center;gap:.8rem;margin-top:auto}
@@ -176,11 +165,6 @@
 /* width:100% es obligatorio: sin él, min-height + aspect-ratio inflaban el ancho
    a 453px y desbordaban horizontalmente en móvil. */
 .mapa iframe{width:100%;height:100%;border:0;display:block}
-.mapa__boton{position:absolute;inset:0;width:100%;height:100%;border:0;background:var(--crema);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.4rem;padding:2rem;font-family:var(--f-texto);color:var(--tinta)}
-.mapa__boton svg{width:46px;height:46px;color:var(--coral-ink)}
-.mapa__boton span{font-family:var(--f-titulo);font-weight:600;font-size:1.2rem}
-.mapa__boton small{color:var(--tinta-suave);max-width:28ch;text-align:center;line-height:1.4}
-.mapa__boton:hover{background:#EFE1C9}
 
 /* --------------------- 11. CTA final + formulario ------------------- */
 .cta-final{background:var(--coral-btn);color:#fff;padding:clamp(3rem,7vw,5rem) 0;position:relative;overflow:hidden}
@@ -212,7 +196,6 @@
 .footer__grid{display:grid;gap:2rem;grid-template-columns:1fr}
 @media (min-width:768px){.footer__grid{grid-template-columns:1.4fr 1fr 1fr}}
 .footer h4{font-size:1.05rem;color:#fff;margin-bottom:.7rem}
-.footer .logo__sub{color:rgba(255,255,255,.65)}
 .footer__claim{max-width:34ch;font-size:.95rem;margin-top:1rem}
 .direccion--footer{font-size:.98rem;font-weight:400;margin-bottom:0}
 .redes--footer{margin:0 0 1.2rem}
@@ -236,5 +219,5 @@
 @media (max-width:640px){
   .btn{width:100%}
   .hero__acciones .btn,.acciones-fila .btn,.banda-extra .btn{width:100%}
-  .redes a,.ctrl{min-width:48px;min-height:48px}
+  .redes a,.reel__sonido{min-width:48px;min-height:48px}
 }

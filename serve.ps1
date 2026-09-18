@@ -34,19 +34,26 @@ try {
     if ($path -eq '/') { $path = '/index.html' }
     $file = Join-Path $root ($path.TrimStart('/') -replace '/','\')
 
-    if (Test-Path $file -PathType Leaf) {
-      $ext = [IO.Path]::GetExtension($file).ToLower()
-      $ct = $mime[$ext]
-      if (-not $ct) { $ct = 'application/octet-stream' }
-      $bytes = [IO.File]::ReadAllBytes($file)
-      $ctx.Response.ContentType = $ct
-      $ctx.Response.ContentLength64 = $bytes.Length
-      $ctx.Response.OutputStream.Write($bytes, 0, $bytes.Length)
-    } else {
-      $ctx.Response.StatusCode = 404
+    try {
+      if (Test-Path $file -PathType Leaf) {
+        $ext = [IO.Path]::GetExtension($file).ToLower()
+        $ct = $mime[$ext]
+        if (-not $ct) { $ct = 'application/octet-stream' }
+        $bytes = [IO.File]::ReadAllBytes($file)
+        $ctx.Response.ContentType = $ct
+        $ctx.Response.ContentLength64 = $bytes.Length
+        $ctx.Response.OutputStream.Write($bytes, 0, $bytes.Length)
+      } else {
+        $ctx.Response.StatusCode = 404
+      }
+      Write-Host "$($ctx.Response.StatusCode) $path"
+    } catch {
+      # El cliente cortó la conexión a medio archivo (video grande, preview
+      # cerrado, etc.): no debe tumbar el servidor completo.
+      Write-Host "(conexión cortada) $path"
+    } finally {
+      $ctx.Response.Close()
     }
-    Write-Host "$($ctx.Response.StatusCode) $path"
-    $ctx.Response.Close()
   }
 } finally {
   $listener.Stop()

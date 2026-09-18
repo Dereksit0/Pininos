@@ -9,9 +9,8 @@
      3. Header sticky + navegación activa
      4. Animaciones de entrada
      5. Reel de videos 9:16
-     6. Mapa bajo demanda
-     7. Formulario → WhatsApp
-     8. Año del footer y tracking de CTAs
+     6. Formulario → WhatsApp
+     7. Año del footer y tracking de CTAs
    ===================================================================== */
 (function () {
   'use strict';
@@ -166,146 +165,90 @@
   /* ==================================================================
      5. REEL DE VIDEOS 9:16
      ------------------------------------------------------------------
-     Reglas de performance:
-       · preload="none" en el HTML → nada se descarga hasta que hace falta.
-       · Sólo se reproduce el video visible; al salir de vista se pausa.
-       · Escritorio: autoplay silenciado al entrar en vista.
-       · Móvil: se queda el poster y sólo arranca con el tap del usuario.
+     Los 4 videos van siempre en cuadrícula (nada de carrusel) y se
+     reproducen los 4 a la vez, silenciados (así lo exige cualquier
+     navegador para autoplay). El botón de bocina de cada tarjeta activa
+     el audio de ESE video y apaga el de los demás, para que nunca se
+     empalmen 4 audios distintos. Sólo se pausan los 4 cuando la sección
+     sale completamente de la pantalla (o se oculta la pestaña), para no
+     gastar batería/CPU de más sin necesidad.
      ================================================================== */
+  var reelSeccion = document.getElementById('reel');
   var pista = document.getElementById('reel-pista');
 
-  if (pista) {
-    var items = pista.querySelectorAll('.reel__item');
-    var esEscritorio = window.matchMedia('(min-width: 1025px) and (pointer: fine)').matches;
+  if (pista && reelSeccion) {
+    var videos = pista.querySelectorAll('video');
 
-    // ---- Flechas del carrusel -------------------------------------
-    function desplazar(direccion) {
-      var item = pista.querySelector('.reel__item');
-      if (!item) return;
-      var paso = item.getBoundingClientRect().width + 18; // ancho + gap
-      pista.scrollBy({ left: paso * direccion, behavior: reduceMovimiento ? 'auto' : 'smooth' });
-    }
-
-    var btnPrev = document.querySelector('[data-reel-prev]');
-    var btnNext = document.querySelector('[data-reel-next]');
-    if (btnPrev) btnPrev.addEventListener('click', function () { desplazar(-1); });
-    if (btnNext) btnNext.addEventListener('click', function () { desplazar(1); });
-
-    function actualizarFlechas() {
-      if (!btnPrev || !btnNext) return;
-      var max = pista.scrollWidth - pista.clientWidth - 4;
-      btnPrev.disabled = pista.scrollLeft <= 4;
-      btnNext.disabled = pista.scrollLeft >= max;
-    }
-    pista.addEventListener('scroll', function () {
-      // Throttle simple con requestAnimationFrame
-      if (pista.dataset.tick) return;
-      pista.dataset.tick = '1';
-      requestAnimationFrame(function () {
-        actualizarFlechas();
-        delete pista.dataset.tick;
-      });
-    }, { passive: true });
-    actualizarFlechas();
-
-    // ---- Reproducir / pausar --------------------------------------
-    function reproducir(video) {
-      var contenedor = video.parentElement;
-      var promesa = video.play();
-      if (promesa && typeof promesa.catch === 'function') {
-        // Si el navegador bloquea el autoplay (o aún no hay archivo de
-        // video), se deja el poster visible sin romper nada.
-        promesa.then(function () {
-          contenedor.classList.add('reproduciendo');
-        }).catch(function () {
-          contenedor.classList.remove('reproduciendo');
-        });
-      } else {
-        contenedor.classList.add('reproduciendo');
+    function reproducirTodos() {
+      for (var i = 0; i < videos.length; i++) {
+        var promesa = videos[i].play();
+        if (promesa && typeof promesa.catch === 'function') promesa.catch(function () {});
       }
     }
 
-    function pausar(video) {
-      if (!video.paused) video.pause();
-      video.parentElement.classList.remove('reproduciendo');
+    function pausarTodos() {
+      for (var i = 0; i < videos.length; i++) {
+        if (!videos[i].paused) videos[i].pause();
+      }
     }
 
-    // Botón de play sobre cada tarjeta (imprescindible en móvil)
-    for (var b = 0; b < items.length; b++) {
-      (function (item) {
-        var video = item.querySelector('video');
-        var boton = item.querySelector('.reel__play');
-        if (!video || !boton) return;
+    // ---- Botón de bocina: sólo un video suena a la vez -------------
+    var botones = pista.querySelectorAll('[data-video-sonido]');
+    for (var b = 0; b < botones.length; b++) {
+      (function (boton) {
+        var video = boton.parentElement.querySelector('video');
+        if (!video) return;
+
+        function pintar(activo) {
+          boton.setAttribute('aria-pressed', activo ? 'true' : 'false');
+          boton.querySelector('use').setAttribute('href', activo ? '#i-sonido' : '#i-silencio');
+        }
 
         boton.addEventListener('click', function () {
-          if (video.paused) {
-            video.preload = 'auto';
-            reproducir(video);
-          } else {
-            pausar(video);
-          }
-        });
-
-        video.addEventListener('pause', function () {
-          item.querySelector('.reel__video').classList.remove('reproduciendo');
-        });
-      })(items[b]);
-    }
-
-    // Observa qué videos están realmente en pantalla
-    if (soportaIO) {
-      var observadorVideos = new IntersectionObserver(function (entradas) {
-        entradas.forEach(function (entrada) {
-          var video = entrada.target;
-          if (entrada.isIntersecting) {
-            // Sólo en escritorio se arranca solo (silenciado)
-            if (esEscritorio && !reduceMovimiento) {
-              video.preload = 'auto';
-              reproducir(video);
+          var activar = video.muted;
+          // Apaga el sonido de todas las demás tarjetas primero.
+          for (var j = 0; j < botones.length; j++) {
+            var otroVideo = botones[j].parentElement.querySelector('video');
+            if (otroVideo && otroVideo !== video) {
+              otroVideo.muted = true;
+              botones[j].setAttribute('aria-pressed', 'false');
+              botones[j].querySelector('use').setAttribute('href', '#i-silencio');
             }
-          } else {
-            pausar(video); // fuera de vista = nunca consume CPU/red
           }
+          video.muted = !activar;
+          pintar(activar);
         });
-      }, { threshold: 0.6 });
-
-      var videos = pista.querySelectorAll('video');
-      for (var vi = 0; vi < videos.length; vi++) observadorVideos.observe(videos[vi]);
+      })(botones[b]);
     }
 
-    // Al ocultar la pestaña, pausar todo
+    // Si el navegador bloquea el autoplay hasta que haya interacción,
+    // lo reintentamos apenas el usuario toque cualquier parte del sitio.
+    reproducirTodos();
+    document.addEventListener('pointerdown', reproducirTodos, { once: true, passive: true });
+
+    // Pausa/retoma los 4 juntos según si la sección está en pantalla.
+    var enVista = true;
+    if (soportaIO && !reduceMovimiento) {
+      var observadorReel = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+          enVista = entrada.isIntersecting;
+          if (enVista) reproducirTodos();
+          else pausarTodos();
+        });
+      }, { threshold: 0 });
+      observadorReel.observe(reelSeccion);
+    }
+
+    // Al ocultar la pestaña, pausar todo; al volver, retomar sólo si
+    // la sección seguía en pantalla.
     document.addEventListener('visibilitychange', function () {
-      if (document.hidden) {
-        var vids = pista.querySelectorAll('video');
-        for (var p = 0; p < vids.length; p++) pausar(vids[p]);
-      }
+      if (document.hidden) pausarTodos();
+      else if (enVista) reproducirTodos();
     });
   }
 
   /* ==================================================================
-     6. MAPA BAJO DEMANDA
-     ------------------------------------------------------------------
-     El iframe de Google Maps pesa cientos de KB y carga scripts de
-     terceros: sólo se inyecta cuando el usuario lo pide.
-     ================================================================== */
-  var mapa = document.getElementById('mapa');
-  var mapaBoton = document.getElementById('mapa-boton');
-
-  if (mapa && mapaBoton) {
-    mapaBoton.addEventListener('click', function () {
-      var iframe = document.createElement('iframe');
-      iframe.src = mapa.getAttribute('data-src');
-      iframe.title = 'Mapa de ubicación de Pininos en Calzada Zavaleta 124, Puebla';
-      iframe.loading = 'lazy';
-      iframe.referrerPolicy = 'no-referrer-when-downgrade';
-      iframe.setAttribute('allowfullscreen', '');
-      mapa.innerHTML = '';
-      mapa.appendChild(iframe);
-    });
-  }
-
-  /* ==================================================================
-     7. FORMULARIO → WHATSAPP
+     6. FORMULARIO → WHATSAPP
      ------------------------------------------------------------------
      Sin backend: arma el mensaje y abre WhatsApp con todo escrito.
      [COMPLETAR] Si el cliente prefiere recibirlo por correo, ver README
@@ -362,7 +305,7 @@
   }
 
   /* ==================================================================
-     8. AÑO DEL FOOTER + TRACKING DE CTAs
+     7. AÑO DEL FOOTER + TRACKING DE CTAs
      ================================================================== */
   var anio = document.getElementById('anio');
   if (anio) anio.textContent = new Date().getFullYear();
