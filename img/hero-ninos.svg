@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1040 900" width="1040" height="900" role="img" aria-label="Ninos jugando en Pininos (1040x900)">
+  <rect width="1040" height="900" fill="#F3E7D3"/>
+  <circle cx="173" cy="180" r="208" fill="#FDC652" opacity=".38"/>
+  <circle cx="866" cy="720" r="260" fill="#7AB80A" opacity=".30"/>
+  <circle cx="832" cy="150" r="115" fill="#FDC652" opacity=".22"/>
+  <svg x="331" y="197" width="378" height="378" viewBox="0 0 120 120">
+  <ellipse cx="26" cy="96" rx="17" ry="9" fill="#6AA309"/>
+  <ellipse cx="94" cy="96" rx="17" ry="9" fill="#6AA309"/>
+  <path d="M60 22c-24 0-41 18-41 42 0 20 18 34 41 34s41-14 41-34c0-24-17-42-41-42z" fill="#7AB80A"/>
+  <circle cx="40" cy="31" r="16" fill="#7AB80A"/>
+  <circle cx="80" cy="31" r="16" fill="#7AB80A"/>
+  <circle cx="40" cy="31" r="11" fill="#FFFFFF"/>
+  <circle cx="80" cy="31" r="11" fill="#FFFFFF"/>
+  <circle cx="42" cy="33" r="5.5" fill="#1E2A32"/>
+  <circle cx="78" cy="33" r="5.5" fill="#1E2A32"/>
+  <circle cx="44" cy="31" r="2" fill="#FFFFFF"/>
+  <circle cx="80" cy="31" r="2" fill="#FFFFFF"/>
+  <ellipse cx="60" cy="76" rx="26" ry="19" fill="#DCF0A6"/>
+  <path d="M46 58q14 14 28 0" stroke="#3C5A05" stroke-width="4.5" fill="none" stroke-linecap="round"/>
+  <circle cx="33" cy="60" r="5" fill="#F75265" opacity=".45"/>
+  <circle cx="87" cy="60" r="5" fill="#F75265" opacity=".45"/>
+  </svg>
+  <text x="520" y="661" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="43" font-weight="bold" fill="#1E2A32" opacity=".85">[COMPLETAR] Foto del hero</text>
+  <text x="520" y="718" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="30" fill="#1E2A32" opacity=".65">Ninos jugando en Pininos (1040x900)</text>
+  <rect x="10" y="10" width="1020" height="880" rx="57" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="16 13" opacity=".85"/>
+</svg>

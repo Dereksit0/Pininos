@@ -1,0 +1,17 @@
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Editores
+.vscode/
+.idea/
+*.swp
+
+# Dependencias / builds
+node_modules/
+dist/
+.netlify/
+
+# Logs
+*.log

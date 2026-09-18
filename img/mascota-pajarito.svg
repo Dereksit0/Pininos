@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Pajarito azul, mascota de Pininos">
+  <path d="M50 94v13M70 94v13M43 107h13M64 107h13" stroke="#F68404" stroke-width="5" stroke-linecap="round"/>
+  <path d="M60 22c-3-8 3-15 11-15-5 5-5 11-1 15z" fill="#0251AF"/>
+  <ellipse cx="60" cy="60" rx="38" ry="36" fill="#0251AF"/>
+  <ellipse cx="60" cy="72" rx="22" ry="20" fill="#A8D3FF"/>
+  <path d="M88 52c10 3 15 13 11 22-3 7-11 10-19 8 6-9 9-20 8-30z" fill="#023E86"/>
+  <circle cx="48" cy="52" r="6.5" fill="#FFFFFF"/>
+  <circle cx="72" cy="52" r="6.5" fill="#FFFFFF"/>
+  <circle cx="49" cy="53" r="3.2" fill="#1E2A32"/>
+  <circle cx="73" cy="53" r="3.2" fill="#1E2A32"/>
+  <path d="M60 60l11 7-11 7-11-7z" fill="#F68404"/>
+  <circle cx="36" cy="64" r="5" fill="#F75265" opacity=".45"/>
+  <circle cx="84" cy="64" r="5" fill="#F75265" opacity=".45"/>
+</svg>

@@ -1,0 +1,37 @@
+# Configuración para desplegar en Netlify (arrastrar la carpeta o conectar el repo).
+# En Vercel funciona igual sin configuración: es un sitio estático puro.
+
+[build]
+  publish = "."
+
+# Cache agresivo para assets con nombre estable.
+# Si reemplazas una imagen o un video, renómbralo (ej. reel-1-v2.mp4)
+# para saltarte la caché del navegador.
+[[headers]]
+  for = "/img/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/videos/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
+
+# Cabeceras de seguridad (suman en "Best Practices" de Lighthouse)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"

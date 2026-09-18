@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# [COMPLETAR] Cambiar al dominio definitivo
+Sitemap: https://pininospasitosfirmes.mx/sitemap.xml

@@ -1,0 +1,783 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Marca que hay JS: evita que las animaciones de entrada dejen contenido oculto si el JS falla -->
+<script>document.documentElement.classList.add("js");</script>
+
+<!-- ============================= SEO ============================= -->
+<title>Pininos Pasitos Firmes | Estimulación Temprana y Maternal en Puebla</title>
+<meta name="description" content="Pininos es un espacio de estimulación temprana y maternal en Puebla que se convierte en el segundo hogar de tu hijo: entorno seguro, atención personalizada y aprendizaje significativo desde los primeros años.">
+<meta name="robots" content="index, follow">
+<meta name="author" content="Pininos — Pasitos Firmes">
+<!-- [COMPLETAR] Sustituir por el dominio definitivo antes de publicar -->
+<link rel="canonical" href="https://pininospasitosfirmes.mx/">
+<meta name="theme-color" content="#F75265">
+
+<!-- ====================== Open Graph / Twitter ==================== -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_MX">
+<meta property="og:site_name" content="Pininos — Pasitos Firmes">
+<meta property="og:title" content="Pininos Pasitos Firmes | Estimulación Temprana y Maternal en Puebla">
+<meta property="og:description" content="Un espacio para crecer, descubrir y dar sus primeros pasos. Grupos pequeños, atención cercana y aprendizaje significativo en Zavaleta, Puebla.">
+<meta property="og:url" content="https://pininospasitosfirmes.mx/">
+<!-- [COMPLETAR] WhatsApp y Facebook NO renderizan SVG: exportar esta imagen a og-image.jpg (1200x630),
+     cambiar la ruta de abajo y poner og:image:type = image/jpeg -->
+<meta property="og:image" content="https://pininospasitosfirmes.mx/img/og-image.svg">
+<meta property="og:image:type" content="image/svg+xml">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Pininos Pasitos Firmes — estimulación temprana y maternal en Puebla">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- =========================== Favicon =========================== -->
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/favicon.svg">
+<!-- [COMPLETAR] agregar favicon.ico y apple-touch-icon.png (180x180) con el logo real -->
+
+<!-- ==================== Tipografías (no bloqueantes) ============== -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;800&family=Nunito:wght@400;700&display=swap"></noscript>
+
+<!-- ======================= CSS CRÍTICO INLINE =====================
+     Sólo lo necesario para pintar el primer viewport (header + hero +
+     barra de confianza + botones). El resto viaja en css/styles.css y
+     se carga de forma asíncrona para no bloquear el render.          -->
+<style>
+:root{
+  /* Paleta oficial */
+  --azul:#0251AF; --coral:#F75265; --verde:#7AB80A;
+  --naranja:#F68404; --amarillo:#FDC652; --crema:#F3E7D3;
+  /* Variantes accesibles (WCAG AA) para texto y botones */
+  --coral-btn:#DC2B43;   /* 4.7:1 con blanco   */
+  --coral-ink:#D0233A;   /* 5.3:1 sobre blanco */
+  --verde-ink:#4F7A00;   /* 5.1:1 sobre blanco */
+  --tinta:#1E2A32; --tinta-suave:#4A5B66;
+  --blanco:#fff; --crema-claro:#FBF5EC;
+  --r-sm:14px; --r-md:22px; --r-lg:32px; --r-xl:44px;
+  --sombra:0 10px 30px rgba(30,42,50,.10);
+  --sombra-alta:0 18px 44px rgba(30,42,50,.16);
+  --header-h:76px;
+  --f-titulo:"Baloo 2","Trebuchet MS",system-ui,sans-serif;
+  --f-texto:"Nunito",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;font-family:var(--f-texto);font-size:17px;line-height:1.65;color:var(--tinta);background:var(--blanco);overflow-x:hidden}
+img,svg,video{max-width:100%;display:block}
+img{height:auto}
+h1,h2,h3,h4{font-family:var(--f-titulo);line-height:1.12;margin:0 0 .5em;font-weight:800;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,5.2vw,3.6rem)}
+h2{font-size:clamp(1.65rem,3.8vw,2.7rem)}
+h3{font-size:clamp(1.15rem,2vw,1.45rem);font-weight:600}
+p{margin:0 0 1rem}
+a{color:var(--coral-ink)}
+:focus-visible{outline:3px solid var(--azul);outline-offset:3px;border-radius:6px}
+.contenedor{width:min(1180px,100% - 2.5rem);margin-inline:auto}
+section[id]{scroll-margin-top:calc(var(--header-h) + 14px)}
+.salta{position:absolute;left:-9999px;top:0;background:#fff;color:var(--tinta);padding:.9rem 1.2rem;border-radius:0 0 var(--r-sm) 0;z-index:200;font-weight:700}
+.salta:focus{left:0}
+.solo-lectores{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+/* ------------------------- Botones ------------------------------ */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.55rem;font-family:var(--f-titulo);font-weight:600;font-size:1.02rem;text-decoration:none;border:0;border-radius:999px;padding:.85rem 1.6rem;cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background-color .18s ease;text-align:center;line-height:1.25}
+.btn svg{width:1.18em;height:1.18em;flex:none}
+.btn--primario{background:var(--coral-btn);color:#fff;box-shadow:0 8px 20px rgba(220,43,67,.32)}
+.btn--primario:hover{background:#C41F36;transform:translateY(-2px);box-shadow:0 12px 26px rgba(220,43,67,.40)}
+.btn--grande{font-size:1.18rem;padding:1.05rem 2.1rem}
+.btn--wa{background:#1FA855;color:#fff;box-shadow:0 8px 20px rgba(31,168,85,.30)}
+.btn--wa:hover{background:#17853F;transform:translateY(-2px)}
+.btn--fantasma{background:transparent;color:var(--tinta);border:2.5px solid var(--tinta)}
+.btn--fantasma:hover{background:var(--tinta);color:#fff;transform:translateY(-2px)}
+
+/* ------------------------- Header ------------------------------- */
+.header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:2px solid transparent;transition:box-shadow .2s ease,border-color .2s ease}
+.header.is-fijo{box-shadow:0 6px 22px rgba(30,42,50,.10);border-bottom-color:var(--crema)}
+.header__inner{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:var(--header-h)}
+.logo{display:flex;align-items:center;gap:.6rem;text-decoration:none;flex:none}
+.logo img{width:44px;height:44px}
+.logo__texto{display:flex;flex-direction:column;line-height:1}
+.logo__marca{font-family:var(--f-titulo);font-weight:800;font-size:1.5rem;letter-spacing:.02em}
+.logo__marca span:nth-child(1){color:var(--coral)}
+.logo__marca span:nth-child(2){color:var(--azul)}
+.logo__marca span:nth-child(3){color:var(--verde)}
+.logo__marca span:nth-child(4){color:var(--naranja)}
+.logo__marca span:nth-child(5){color:var(--amarillo)}
+.logo__marca span:nth-child(6){color:var(--azul)}
+.logo__marca span:nth-child(7){color:var(--coral)}
+.logo__sub{font-size:.62rem;letter-spacing:.2em;font-weight:700;color:var(--tinta-suave);text-transform:uppercase}
+.nav{display:flex;align-items:center;gap:.25rem}
+.nav a{font-weight:700;font-size:.97rem;color:var(--tinta);text-decoration:none;padding:.5rem .7rem;border-radius:999px;transition:color .15s,background-color .15s}
+.nav a:hover,.nav a.activo{color:var(--coral-ink);background:#FDEFF1}
+.nav .btn{color:#fff}
+.header__cta{flex:none}
+/* El CTA del menú móvil vive dentro de .nav; en escritorio sobra porque ya
+   está .header__cta, y se veía duplicado. */
+@media (min-width:1025px){.nav .btn{display:none}}
+.burger{display:none;width:48px;height:48px;border:0;background:var(--crema);border-radius:14px;cursor:pointer;padding:0;align-items:center;justify-content:center}
+.burger span{display:block;width:22px;height:2.5px;background:var(--tinta);border-radius:2px;position:relative;transition:background-color .2s}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:22px;height:2.5px;background:var(--tinta);border-radius:2px;transition:transform .25s,top .25s}
+.burger span::before{top:-7px}
+.burger span::after{top:7px}
+.burger[aria-expanded="true"] span{background:transparent}
+.burger[aria-expanded="true"] span::before{top:0;transform:rotate(45deg)}
+.burger[aria-expanded="true"] span::after{top:0;transform:rotate(-45deg)}
+@media (max-width:1024px){
+  .burger{display:flex}
+  .header__cta{display:none}
+  .nav{position:fixed;inset:var(--header-h) 0 auto 0;flex-direction:column;align-items:stretch;gap:.1rem;background:#fff;padding:1rem 1.25rem 1.6rem;box-shadow:0 18px 30px rgba(30,42,50,.16);border-bottom:3px solid var(--crema);transform:translateY(-135%);transition:transform .28s ease;max-height:calc(100dvh - var(--header-h));overflow-y:auto;visibility:hidden}
+  .nav.abierto{transform:translateY(0);visibility:visible}
+  .nav a{padding:.85rem 1rem;font-size:1.08rem;border-bottom:1px solid var(--crema-claro)}
+  .nav .btn{margin-top:.9rem;border-bottom:0}
+}
+
+/* -------------------------- Hero -------------------------------- */
+.hero{position:relative;background:var(--crema);padding:clamp(2rem,5vw,4rem) 0 clamp(3rem,6vw,4.5rem);overflow:hidden}
+.hero .contenedor{position:relative;z-index:1}
+.hero__grid{display:grid;gap:clamp(2rem,4vw,3.5rem);align-items:center;grid-template-columns:1fr}
+@media (min-width:1025px){.hero__grid{grid-template-columns:1.02fr .98fr}}
+.hero__eyebrow{display:inline-flex;align-items:center;gap:.5rem;background:#fff;color:var(--verde-ink);font-weight:700;font-size:.87rem;padding:.42rem 1rem;border-radius:999px;box-shadow:var(--sombra);margin-bottom:1.1rem}
+.hero__eyebrow svg{width:18px;height:18px;flex:none}
+.hero h1{margin-bottom:.5rem}
+.hero h1 em{font-style:normal;color:var(--coral-ink)}
+.hero__sub{font-size:clamp(1.08rem,2.2vw,1.35rem);font-weight:700;color:var(--tinta-suave);margin-bottom:1.4rem}
+.chips{display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:0 0 1.8rem;list-style:none}
+.chips li{background:#fff;border-radius:999px;padding:.48rem 1rem;font-size:.92rem;font-weight:700;box-shadow:0 4px 12px rgba(30,42,50,.07)}
+.hero__acciones{display:flex;flex-wrap:wrap;gap:.8rem;align-items:center}
+.hero__nota{font-size:.82rem;color:var(--tinta-suave);margin:.85rem 0 0}
+.hero__media{position:relative}
+.hero__foto{border-radius:var(--r-xl);box-shadow:var(--sombra-alta);width:100%;height:auto;border:6px solid #fff}
+.hero__blob{position:absolute;border-radius:50%;z-index:0;pointer-events:none}
+.hero__blob--1{width:280px;height:280px;background:var(--amarillo);opacity:.5;top:-110px;left:-120px}
+.hero__blob--2{width:220px;height:220px;background:var(--verde);opacity:.26;bottom:-80px;right:-70px}
+.hero__mascota{position:absolute;width:88px;filter:drop-shadow(0 8px 14px rgba(30,42,50,.18));z-index:2}
+.hero__mascota--a{left:-26px;bottom:34px}
+.hero__mascota--b{right:-18px;top:-30px;width:74px}
+@media (max-width:640px){
+  .hero__mascota{width:58px}
+  .hero__mascota--a{left:-6px;bottom:-16px}
+  .hero__mascota--b{right:-4px;top:-18px;width:52px}
+}
+
+/* ------------------- Barra de confianza ------------------------- */
+.confianza{background:var(--azul);color:#fff;padding:1.4rem 0}
+.confianza__grid{display:grid;gap:1.05rem;grid-template-columns:1fr}
+@media (min-width:640px){.confianza__grid{grid-template-columns:repeat(2,1fr)}}
+@media (min-width:1025px){.confianza__grid{grid-template-columns:repeat(4,1fr)}}
+.confianza__item{display:flex;align-items:center;gap:.75rem;font-weight:700;font-size:.96rem;line-height:1.3;margin:0}
+.confianza__item svg{width:36px;height:36px;flex:none;background:rgba(255,255,255,.17);border-radius:12px;padding:7px}
+
+/* ------------- Botón flotante de WhatsApp (siempre) -------------- */
+.wa-flotante{position:fixed;right:16px;bottom:16px;z-index:120;width:60px;height:60px;border-radius:50%;background:#1FA855;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.28);transition:transform .2s ease}
+.wa-flotante:hover{transform:scale(1.07)}
+.wa-flotante svg{width:34px;height:34px}
+@media (min-width:1025px){.wa-flotante{right:26px;bottom:26px;width:66px;height:66px}}
+</style>
+
+<!-- CSS no crítico: se carga sin bloquear el render -->
+<link rel="preload" as="style" href="css/styles.css" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="css/styles.css"></noscript>
+
+<!-- JS diferido: nunca bloquea el parseo del HTML -->
+<script src="js/main.js" defer></script>
+
+<!-- ===================== Datos estructurados ====================== -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"ChildCare",
+  "name":"Pininos — Pasitos Firmes",
+  "description":"Estancia infantil y centro de estimulación temprana en Puebla: maternal, after school, días de club, camps y talleres.",
+  "image":"https://pininospasitosfirmes.mx/img/og-image.svg",
+  "url":"https://pininospasitosfirmes.mx/",
+  "address":{
+    "@type":"PostalAddress",
+    "streetAddress":"Calzada Zavaleta No. 124, Col. Santa Cruz Buena Vista",
+    "addressLocality":"Puebla",
+    "addressRegion":"Puebla",
+    "postalCode":"72154",
+    "addressCountry":"MX"
+  },
+  "areaServed":"Puebla, México",
+  "sameAs":[
+    "https://www.instagram.com/pininos.pasitosfirmes/",
+    "https://www.facebook.com/profile.php?id=61556187913609"
+  ]
+}
+</script>
+</head>
+<body>
+<a class="salta" href="#contenido">Saltar al contenido</a>
+
+<!-- ============ Sprite de íconos inline (0 peticiones extra) ============ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <symbol id="i-bloques" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="12.5" width="8" height="8" rx="2.2"/><rect x="13.5" y="12.5" width="8" height="8" rx="2.2"/><rect x="8" y="3" width="8" height="8" rx="2.2"/></symbol>
+  <symbol id="i-sol" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4.4"/><path d="M12 2v2.6M12 19.4V22M2 12h2.6M19.4 12H22M4.9 4.9l1.9 1.9M17.2 17.2l1.9 1.9M19.1 4.9l-1.9 1.9M6.8 17.2l-1.9 1.9"/></symbol>
+  <symbol id="i-libro" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M4 5a3 3 0 0 1 3-3h13v16H7a3 3 0 0 0-3 3V5z"/><path d="M4 21a3 3 0 0 1 3-3h13"/></symbol>
+  <symbol id="i-estrella" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 3l2.7 5.6 6.1.9-4.4 4.2 1.05 6.1L12 16.9l-5.45 2.9L7.6 13.7 3.2 9.5l6.1-.9z"/></symbol>
+  <symbol id="i-tienda" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 4L3.5 20h17L12 4z"/><path d="M12 4v16M8 20l4-7 4 7"/></symbol>
+  <symbol id="i-calendario" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="5" width="18" height="16" rx="3.4"/><path d="M3 10h18M8 2.6v4.2M16 2.6v4.2"/></symbol>
+  <symbol id="i-reloj" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 6.6v5.9l3.8 2.2"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 21.5S19 15 19 10a7 7 0 1 0-14 0c0 5 7 11.5 7 11.5z"/><circle cx="12" cy="10" r="2.6"/></symbol>
+  <symbol id="i-medalla" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><circle cx="12" cy="8.6" r="5.6"/><path d="M8.4 13.4L7 22l5-2.7 5 2.7-1.4-8.6"/></symbol>
+  <symbol id="i-familia" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.5" r="3.4"/><path d="M2.6 19.6a6.4 6.4 0 0 1 12.8 0"/><circle cx="17.6" cy="10" r="2.7"/><path d="M15.8 19.6h5.6a5 5 0 0 0-3.6-4.8"/></symbol>
+  <symbol id="i-corazon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"><path d="M12 20.4S4.2 15.5 4.2 10.3A4.1 4.1 0 0 1 12 7.9a4.1 4.1 0 0 1 7.8 2.4c0 5.2-7.8 10.1-7.8 10.1z"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12.6l5.2 5.2L20 6.8"/></symbol>
+  <symbol id="i-flecha" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 12h14M12.5 5.6L19 12l-6.5 6.4"/></symbol>
+  <symbol id="i-play" viewBox="0 0 24 24"><path fill="currentColor" d="M7.5 4.8v14.4c0 .8.9 1.3 1.6.9l11.2-7.2c.6-.4.6-1.4 0-1.8L9.1 3.9c-.7-.4-1.6.1-1.6.9z"/></symbol>
+  <symbol id="i-comillas" viewBox="0 0 24 24"><path fill="currentColor" d="M9.4 5.6C6.2 7.2 4.5 9.9 4.5 13.2V19h6.6v-6.8H7.8c.1-1.9.9-3.2 2.5-4.1l-.9-2.5zM20.1 5.6c-3.2 1.6-4.9 4.3-4.9 7.6V19h6.6v-6.8h-3.3c.1-1.9.9-3.2 2.5-4.1l-.9-2.5z"/></symbol>
+  <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.97L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.9-4.45 9.9-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.17c-.25.7-1.45 1.33-2.02 1.42-.52.08-1.17.11-1.89-.12-.44-.14-1-.33-1.72-.64-3.02-1.3-4.99-4.34-5.14-4.54-.15-.2-1.23-1.63-1.23-3.11s.78-2.21 1.05-2.51c.28-.3.6-.38.8-.38.2 0 .4 0 .58.01.19.01.44-.07.68.52.25.6.85 2.08.92 2.23.08.15.13.33.02.53-.1.2-.15.32-.3.5-.15.17-.32.39-.45.52-.15.15-.31.31-.13.61.17.3.77 1.27 1.65 2.06 1.14 1.01 2.09 1.33 2.39 1.48.3.15.47.13.65-.08.17-.2.75-.87.95-1.17.2-.3.4-.25.67-.15.27.1 1.72.81 2.02.96.3.15.5.22.57.35.07.12.07.72-.18 1.42z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5.2"/><circle cx="12" cy="12" r="4.1"/><circle cx="17.3" cy="6.7" r="1.25" fill="currentColor" stroke="none"/></symbol>
+  <symbol id="i-fb" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 21.9v-8.4h2.8l.42-3.26H13.5V8.16c0-.94.26-1.58 1.61-1.58h1.72V3.66c-.3-.04-1.32-.13-2.51-.13-2.49 0-4.19 1.52-4.19 4.3v2.4H7.32v3.27h2.81v8.4h3.37z"/></symbol>
+</svg>
+
+<!-- =================================================================
+                              HEADER
+================================================================== -->
+<header class="header" id="header">
+  <div class="contenedor header__inner">
+    <a class="logo" href="#inicio" aria-label="Pininos Pasitos Firmes, ir al inicio">
+      <!-- [COMPLETAR] Reemplazar por el logo oficial en alta resolución (SVG) -->
+      <img src="img/favicon.svg" alt="" width="44" height="44" aria-hidden="true">
+      <span class="logo__texto">
+        <span class="logo__marca" aria-hidden="true"><span>P</span><span>I</span><span>N</span><span>I</span><span>N</span><span>O</span><span>S</span></span>
+        <span class="logo__sub" aria-hidden="true">Pasitos Firmes</span>
+        <span class="solo-lectores">Pininos Pasitos Firmes</span>
+      </span>
+    </a>
+
+    <nav class="nav" id="nav" aria-label="Navegación principal">
+      <a href="#nosotros">Nosotros</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#actividades">Actividades</a>
+      <a href="#enfoque">Enfoque</a>
+      <a href="#proceso">Inscripción</a>
+      <a href="#ubicacion">Ubicación</a>
+      <!-- CTA repetido dentro del menú móvil -->
+      <a class="btn btn--primario" href="#contacto" data-cta="nav-movil">Agenda tu visita</a>
+    </nav>
+
+    <a class="btn btn--primario header__cta" href="#contacto" data-cta="header">Agenda tu visita</a>
+
+    <button class="burger" id="burger" type="button" aria-label="Abrir menú" aria-controls="nav" aria-expanded="false">
+      <span></span>
+    </button>
+  </div>
+</header>
+
+<main id="contenido">
+
+<!-- =================================================================
+                               HERO
+================================================================== -->
+<section class="hero" id="inicio">
+  <span class="hero__blob hero__blob--1" aria-hidden="true"></span>
+  <span class="hero__blob hero__blob--2" aria-hidden="true"></span>
+  <div class="contenedor">
+    <div class="hero__grid">
+      <div class="hero__texto">
+        <span class="hero__eyebrow"><svg aria-hidden="true"><use href="#i-corazon"></use></svg> Estancia infantil en Zavaleta, Puebla</span>
+        <h1>Un espacio para crecer, descubrir y dar sus <em>primeros pasos</em></h1>
+        <p class="hero__sub">Grupos pequeños. Atención cercana. Mayor avance.</p>
+        <ul class="chips">
+          <li>📚 Educación desde los primeros años</li>
+          <li>👶 Estimulación temprana</li>
+          <li>☀️ Día de CTE</li>
+          <li>⏰ Opciones flexibles</li>
+        </ul>
+        <div class="hero__acciones">
+          <a class="btn btn--primario btn--grande" href="#contacto" data-cta="hero">Agenda tu día de prueba</a>
+          <!-- [COMPLETAR] número de WhatsApp real: se centraliza en js/main.js (const WHATSAPP) -->
+          <a class="btn btn--wa" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Vi su sitio web y me gustaría más información.">
+            <svg aria-hidden="true"><use href="#i-wa"></use></svg> Escríbenos por WhatsApp
+          </a>
+        </div>
+        <p class="hero__nota">*No aplica para CTE ni Curso de Verano.</p>
+      </div>
+
+      <div class="hero__media">
+        <!-- Única imagen que NO lleva lazy: es el LCP del sitio.
+             [COMPLETAR] Sustituir por foto o video real de niños (webp / mp4). -->
+        <img class="hero__foto" src="img/hero-ninos.svg" width="1040" height="900"
+             alt="Niñas y niños jugando y explorando en las instalaciones de Pininos"
+             fetchpriority="high" decoding="async">
+        <img class="hero__mascota hero__mascota--a" src="img/mascota-caracol.svg" width="88" height="88" alt="" aria-hidden="true">
+        <img class="hero__mascota hero__mascota--b" src="img/mascota-pajarito.svg" width="74" height="74" alt="" aria-hidden="true">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                        BARRA DE CONFIANZA
+================================================================== -->
+<section class="confianza" aria-label="Por qué confiar en Pininos">
+  <div class="contenedor confianza__grid">
+    <p class="confianza__item"><svg aria-hidden="true"><use href="#i-medalla"></use></svg> <span>[COMPLETAR] X años acompañando familias poblanas</span></p>
+    <p class="confianza__item"><svg aria-hidden="true"><use href="#i-corazon"></use></svg> <span>Equipo profesional con vocación por la primera infancia</span></p>
+    <p class="confianza__item"><svg aria-hidden="true"><use href="#i-familia"></use></svg> <span>Grupos pequeños y atención personalizada</span></p>
+    <p class="confianza__item"><svg aria-hidden="true"><use href="#i-pin"></use></svg> <span>Calzada Zavaleta 124, Santa Cruz Buena Vista</span></p>
+  </div>
+</section>
+
+<!-- =================================================================
+                           QUIÉNES SOMOS
+================================================================== -->
+<section class="seccion" id="nosotros">
+  <div class="contenedor dos-columnas">
+    <div class="dos-columnas__media revelar">
+      <img class="foto-redonda" src="img/equipo.svg" width="900" height="700" loading="lazy" decoding="async"
+           alt="Equipo de maestras de Pininos acompañando a los niños">
+      <img class="mascota-flotante" src="img/mascota-rana.svg" width="86" height="86" alt="" aria-hidden="true" loading="lazy">
+    </div>
+    <div class="revelar">
+      <span class="etiqueta etiqueta--verde">Quiénes somos</span>
+      <h2>Un segundo hogar donde cada niño es protagonista</h2>
+      <p class="texto-grande">Somos un equipo de profesionales con el deseo y la vocación compartida de acompañar bebés y niños en el desarrollo de sus habilidades por medio de la exploración y el descubrimiento del mundo en un entorno seguro.</p>
+      <ul class="lista-check">
+        <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Ambiente seguro, cálido y preparado para explorar</li>
+        <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Acompañamiento cercano en cada etapa del desarrollo</li>
+        <li><svg aria-hidden="true"><use href="#i-check"></use></svg> Comunicación constante con mamá y papá</li>
+      </ul>
+      <a class="btn btn--primario" href="#contacto" data-cta="nosotros">Conoce nuestras instalaciones</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                           QUÉ OFRECEMOS
+================================================================== -->
+<section class="seccion seccion--crema" id="servicios">
+  <div class="contenedor">
+    <header class="seccion__head">
+      <span class="etiqueta etiqueta--coral">Qué ofrecemos</span>
+      <h2>Programas pensados para cada edad y cada familia</h2>
+      <p class="seccion__intro">De los 6 meses a los 7 años, con horarios que se adaptan a tu día a día en Puebla.</p>
+    </header>
+
+    <div class="grid-servicios">
+      <!-- Cada tarjeta abre WhatsApp con un mensaje prellenado según el programa -->
+      <article class="tarjeta tarjeta--servicio revelar">
+        <span class="tarjeta__icono tarjeta__icono--coral"><svg aria-hidden="true"><use href="#i-bloques"></use></svg></span>
+        <h3>Estimulación Temprana</h3>
+        <p class="tarjeta__meta">Desde los 6 meses</p>
+        <p>Sesiones de juego y movimiento que despiertan los sentidos y acompañan los primeros logros: gatear, caminar, comunicarse.</p>
+        <a class="micro-cta" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Me interesa el programa de Estimulación Temprana. ¿Me pueden dar informes?">Preguntar por este programa <svg aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      </article>
+
+      <article class="tarjeta tarjeta--servicio revelar">
+        <span class="tarjeta__icono tarjeta__icono--amarillo"><svg aria-hidden="true"><use href="#i-sol"></use></svg></span>
+        <h3>Maternal AM</h3>
+        <p class="tarjeta__meta">Turno matutino</p>
+        <p>Rutina diaria con lenguaje, arte, música y juego al aire libre para que tu hijo gane autonomía entre amigos de su edad.</p>
+        <a class="micro-cta" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Me interesa el Maternal AM. ¿Me pueden dar informes de horarios y costos?">Preguntar por este programa <svg aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      </article>
+
+      <article class="tarjeta tarjeta--servicio revelar">
+        <span class="tarjeta__icono tarjeta__icono--azul"><svg aria-hidden="true"><use href="#i-libro"></use></svg></span>
+        <h3>After School</h3>
+        <p class="tarjeta__meta">Por la tarde</p>
+        <p>Apoyo con tareas y talleres vespertinos en un espacio tranquilo, mientras tú terminas tu jornada.</p>
+        <a class="micro-cta" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Me interesa el servicio de After School. ¿Me pueden dar informes?">Preguntar por este programa <svg aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      </article>
+
+      <article class="tarjeta tarjeta--servicio revelar">
+        <span class="tarjeta__icono tarjeta__icono--verde"><svg aria-hidden="true"><use href="#i-estrella"></use></svg></span>
+        <h3>Días de Club</h3>
+        <p class="tarjeta__meta">De 6 meses a 7 años</p>
+        <p>Un día completo de juego, retos y descubrimientos. Ideal cuando necesitas un espacio seguro por unas horas.</p>
+        <a class="micro-cta" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Me interesan los Días de Club. ¿Cuáles son las fechas disponibles?">Preguntar por este programa <svg aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      </article>
+
+      <article class="tarjeta tarjeta--servicio revelar">
+        <span class="tarjeta__icono tarjeta__icono--naranja"><svg aria-hidden="true"><use href="#i-tienda"></use></svg></span>
+        <h3>Camps de vacaciones</h3>
+        <p class="tarjeta__meta">Verano e invierno</p>
+        <p>Semanas temáticas con arte, ciencia, cocina y juego para que las vacaciones sean memorables.</p>
+        <a class="micro-cta" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Me interesan los Camps de vacaciones. ¿Me comparten fechas y costos?">Preguntar por este programa <svg aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      </article>
+
+      <article class="tarjeta tarjeta--servicio revelar">
+        <span class="tarjeta__icono tarjeta__icono--coral"><svg aria-hidden="true"><use href="#i-calendario"></use></svg></span>
+        <h3>CTE y días de asueto</h3>
+        <p class="tarjeta__meta">Cuando no hay clases</p>
+        <p>Los días de Consejo Técnico Escolar y los puentes, aquí tienen un plan divertido y tú, tranquilidad.</p>
+        <a class="micro-cta" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Quiero informes para el día de CTE / día de asueto.">Preguntar por este programa <svg aria-hidden="true"><use href="#i-flecha"></use></svg></a>
+      </article>
+    </div>
+
+    <!-- Servicios complementarios -->
+    <div class="banda-extra">
+      <div>
+        <h3>¿Necesitas algo más flexible?</h3>
+        <p>También ofrecemos <strong>guardería</strong>, <strong>clases por hora</strong> y <strong>talleres vespertinos</strong>. Cuéntanos tu horario y armamos una opción a tu medida.</p>
+      </div>
+      <a class="btn btn--wa" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Quiero informes sobre guardería, clases por hora o talleres vespertinos.">
+        <svg aria-hidden="true"><use href="#i-wa"></use></svg> Armar mi horario
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                     REEL DE ACTIVIDADES (9:16)
+================================================================== -->
+<section class="seccion" id="actividades">
+  <div class="contenedor">
+    <header class="seccion__head seccion__head--con-controles">
+      <div>
+        <span class="etiqueta etiqueta--naranja">Así se ve un día en Pininos</span>
+        <h2>Actividades reales, niños reales</h2>
+        <p class="seccion__intro">Desliza para ver momentos de estimulación, juego y talleres.</p>
+      </div>
+      <div class="carrusel__controles">
+        <button class="ctrl" type="button" data-reel-prev aria-label="Ver videos anteriores"><svg aria-hidden="true" class="gira"><use href="#i-flecha"></use></svg></button>
+        <button class="ctrl" type="button" data-reel-next aria-label="Ver más videos"><svg aria-hidden="true"><use href="#i-flecha"></use></svg></button>
+      </div>
+    </header>
+  </div>
+
+  <!-- Carrusel deslizable a sangre completa.
+       [COMPLETAR] Sustituir los .mp4 por los videos reales (H.264, < 3 MB, 9:16).
+       El poster es obligatorio: es lo que se ve mientras el video no carga. -->
+  <div class="reel" id="reel" role="group" aria-label="Carrusel de videos de actividades">
+    <div class="reel__pista" id="reel-pista">
+      <article class="reel__item">
+        <div class="reel__video">
+          <video preload="none" muted loop playsinline poster="img/reel-1.svg" width="540" height="960" aria-label="Video: sesión de estimulación temprana">
+            <source src="videos/reel-1.mp4" type="video/mp4">
+          </video>
+          <button class="reel__play" type="button" aria-label="Reproducir video: estimulación temprana"><svg aria-hidden="true"><use href="#i-play"></use></svg></button>
+        </div>
+        <p class="reel__titulo">Estimulación temprana</p>
+      </article>
+
+      <article class="reel__item">
+        <div class="reel__video">
+          <video preload="none" muted loop playsinline poster="img/reel-2.svg" width="540" height="960" aria-label="Video: juego libre y exploración">
+            <source src="videos/reel-2.mp4" type="video/mp4">
+          </video>
+          <button class="reel__play" type="button" aria-label="Reproducir video: juego libre y exploración"><svg aria-hidden="true"><use href="#i-play"></use></svg></button>
+        </div>
+        <p class="reel__titulo">Juego libre y exploración</p>
+      </article>
+
+      <article class="reel__item">
+        <div class="reel__video">
+          <video preload="none" muted loop playsinline poster="img/reel-3.svg" width="540" height="960" aria-label="Video: taller de arte">
+            <source src="videos/reel-3.mp4" type="video/mp4">
+          </video>
+          <button class="reel__play" type="button" aria-label="Reproducir video: taller de arte"><svg aria-hidden="true"><use href="#i-play"></use></svg></button>
+        </div>
+        <p class="reel__titulo">Talleres de arte</p>
+      </article>
+
+      <article class="reel__item">
+        <div class="reel__video">
+          <video preload="none" muted loop playsinline poster="img/reel-4.svg" width="540" height="960" aria-label="Video: música y movimiento">
+            <source src="videos/reel-4.mp4" type="video/mp4">
+          </video>
+          <button class="reel__play" type="button" aria-label="Reproducir video: música y movimiento"><svg aria-hidden="true"><use href="#i-play"></use></svg></button>
+        </div>
+        <p class="reel__titulo">Música y movimiento</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="contenedor reel__pie">
+    <a class="btn btn--fantasma" href="https://www.instagram.com/pininos.pasitosfirmes/" target="_blank" rel="noopener">
+      <svg aria-hidden="true"><use href="#i-ig"></use></svg> Ver más en Instagram
+    </a>
+  </div>
+</section>
+
+<!-- =================================================================
+                         NUESTRO ENFOQUE
+================================================================== -->
+<section class="seccion seccion--crema" id="enfoque">
+  <div class="contenedor dos-columnas dos-columnas--invertida">
+    <div class="revelar">
+      <span class="etiqueta etiqueta--azul">Nuestro enfoque</span>
+      <h2>Ellos son los protagonistas de su propio desarrollo</h2>
+      <p class="texto-grande">Ofrecemos un espacio que sea un segundo hogar para los bebés y niños, donde puedan retar sus habilidades y crecerlas por medio de la curiosidad, la exploración y el aprendizaje significativo.</p>
+      <!-- [COMPLETAR] confirmar con el cliente que esta descripción metodológica sigue vigente -->
+      <p>Nuestra metodología tiene influencia de <strong>Reggio Emilia</strong> y de las dos primeras etapas de <strong>Piaget</strong> —sensorio-motriz y pre-operacional—, porque creemos que el niño aprende haciendo, tocando y preguntando.</p>
+      <div class="pilares">
+        <div class="pilar"><strong>Reggio Emilia</strong><span>El ambiente como tercer maestro</span></div>
+        <div class="pilar"><strong>Piaget</strong><span>Etapas sensorio-motriz y pre-operacional</span></div>
+        <div class="pilar"><strong>Aprendizaje significativo</strong><span>Aprender desde la propia experiencia</span></div>
+      </div>
+    </div>
+    <div class="dos-columnas__media revelar">
+      <img class="foto-redonda" src="img/enfoque.svg" width="900" height="760" loading="lazy" decoding="async"
+           alt="Niño explorando material didáctico durante una actividad en Pininos">
+      <img class="mascota-flotante mascota-flotante--der" src="img/mascota-mariquita.svg" width="86" height="86" alt="" aria-hidden="true" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                      TESTIMONIOS DE FAMILIAS
+================================================================== -->
+<section class="seccion" id="testimonios">
+  <div class="contenedor">
+    <header class="seccion__head">
+      <span class="etiqueta etiqueta--coral">Familias Pininos</span>
+      <h2>Lo que dicen mamás y papás</h2>
+      <p class="seccion__intro">Historias reales de familias que confían en nosotros.</p>
+    </header>
+
+    <!-- [COMPLETAR] Testimonios reales con foto y consentimiento de la familia.
+         Las frases de abajo son marcadores de posición: NO publicar así. -->
+    <div class="grid-testimonios">
+      <figure class="tarjeta tarjeta--testimonio revelar">
+        <svg class="comillas" aria-hidden="true"><use href="#i-comillas"></use></svg>
+        <blockquote><p>[COMPLETAR] Testimonio real de la familia — pedir 1 o 2 frases sobre el cambio que vieron en su hijo.</p></blockquote>
+        <figcaption>
+          <img src="img/familia-1.svg" width="60" height="60" loading="lazy" decoding="async" alt="">
+          <span><strong>[COMPLETAR] Nombre</strong><small>Mamá/Papá de [COMPLETAR] · [edad]</small></span>
+        </figcaption>
+      </figure>
+
+      <figure class="tarjeta tarjeta--testimonio revelar">
+        <svg class="comillas" aria-hidden="true"><use href="#i-comillas"></use></svg>
+        <blockquote><p>[COMPLETAR] Testimonio real de la familia — ideal si menciona la atención del equipo o la confianza que sienten.</p></blockquote>
+        <figcaption>
+          <img src="img/familia-2.svg" width="60" height="60" loading="lazy" decoding="async" alt="">
+          <span><strong>[COMPLETAR] Nombre</strong><small>Mamá/Papá de [COMPLETAR] · [edad]</small></span>
+        </figcaption>
+      </figure>
+
+      <figure class="tarjeta tarjeta--testimonio revelar">
+        <svg class="comillas" aria-hidden="true"><use href="#i-comillas"></use></svg>
+        <blockquote><p>[COMPLETAR] Testimonio real de la familia — sirve mucho uno que hable del primer día de prueba.</p></blockquote>
+        <figcaption>
+          <img src="img/familia-3.svg" width="60" height="60" loading="lazy" decoding="async" alt="">
+          <span><strong>[COMPLETAR] Nombre</strong><small>Mamá/Papá de [COMPLETAR] · [edad]</small></span>
+        </figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                              VALORES
+================================================================== -->
+<section class="seccion seccion--crema" id="valores">
+  <div class="contenedor">
+    <header class="seccion__head">
+      <span class="etiqueta etiqueta--verde">Nuestros valores</span>
+      <h2>Lo que cuidamos todos los días</h2>
+    </header>
+    <div class="grid-valores">
+      <article class="valor valor--verde revelar">
+        <img src="img/mascota-rana.svg" width="96" height="96" loading="lazy" decoding="async" alt="">
+        <h3>Autonomía</h3>
+        <p>Que puedan intentarlo solos, equivocarse y volver a intentar.</p>
+      </article>
+      <article class="valor valor--naranja revelar">
+        <img src="img/mascota-caracol.svg" width="96" height="96" loading="lazy" decoding="async" alt="">
+        <h3>Tolerancia</h3>
+        <p>Respetar los ritmos propios y los de los demás, sin prisas.</p>
+      </article>
+      <article class="valor valor--azul revelar">
+        <img src="img/mascota-pajarito.svg" width="96" height="96" loading="lazy" decoding="async" alt="">
+        <h3>Colaboración</h3>
+        <p>Aprender juntos: compartir, esperar turno y pedir ayuda.</p>
+      </article>
+      <article class="valor valor--coral revelar">
+        <img src="img/mascota-mariquita.svg" width="96" height="96" loading="lazy" decoding="async" alt="">
+        <h3>Creatividad</h3>
+        <p>Preguntar, imaginar y encontrar formas nuevas de resolver.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                       PROCESO DE INSCRIPCIÓN
+================================================================== -->
+<section class="seccion" id="proceso">
+  <div class="contenedor">
+    <header class="seccion__head">
+      <span class="etiqueta etiqueta--azul">Inscripciones</span>
+      <h2>Inscribir a tu hijo toma 5 pasos</h2>
+      <p class="seccion__intro">Un proceso simple y acompañado, de la primera llamada al primer día.</p>
+    </header>
+
+    <ol class="pasos">
+      <li class="paso revelar"><span class="paso__num">1</span><h3>Solicitud de admisión</h3><p>Llenas la solicitud con los datos de tu hijo y de la familia.</p></li>
+      <li class="paso revelar"><span class="paso__num">2</span><h3>Entrevista y evaluación</h3><p>Previa cita y el mismo día: nos conocemos y observamos a tu hijo en el espacio.</p></li>
+      <li class="paso revelar"><span class="paso__num">3</span><h3>Notificación y pago</h3><p>Te confirmamos el lugar y realizas el pago de inscripción.</p></li>
+      <li class="paso revelar"><span class="paso__num">4</span><h3>Entrega de documentos</h3><p>Nos envías la documentación por WhatsApp, sin vueltas de más.</p></li>
+      <li class="paso revelar"><span class="paso__num">5</span><h3>Material y uniformes</h3><p>Recibes el material y los uniformes. ¡Listos para empezar!</p></li>
+    </ol>
+
+    <div class="proceso__cta">
+      <!-- [COMPLETAR] fecha de inicio del ciclo vigente y fecha límite de inscripción -->
+      <p class="nota">Lugares limitados por grupo. Inicio del ciclo: <strong>[COMPLETAR fecha]</strong>.</p>
+      <a class="btn btn--primario btn--grande" href="#contacto" data-cta="proceso">Quiero iniciar mi proceso</a>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                     GALERÍA — FOTOS REALES
+================================================================== -->
+<section class="seccion seccion--crema" id="galeria">
+  <div class="contenedor">
+    <header class="seccion__head">
+      <span class="etiqueta etiqueta--amarillo">Nuestro espacio</span>
+      <h2>Fotos reales de Pininos, no de catálogo</h2>
+    </header>
+    <!-- [COMPLETAR] Fotos reales del lugar y de las actividades (webp, 520x520) -->
+    <div class="galeria">
+      <img src="img/galeria-1.svg" width="520" height="520" loading="lazy" decoding="async" alt="Área de juego de Pininos">
+      <img src="img/galeria-2.svg" width="520" height="520" loading="lazy" decoding="async" alt="Niños en actividad de estimulación temprana">
+      <img src="img/galeria-3.svg" width="520" height="520" loading="lazy" decoding="async" alt="Material didáctico del salón de maternal">
+      <img src="img/galeria-4.svg" width="520" height="520" loading="lazy" decoding="async" alt="Taller de arte en Pininos">
+      <img src="img/galeria-5.svg" width="520" height="520" loading="lazy" decoding="async" alt="Patio y área al aire libre">
+      <img src="img/galeria-6.svg" width="520" height="520" loading="lazy" decoding="async" alt="Momento de lectura con las maestras">
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                             UBICACIÓN
+================================================================== -->
+<section class="seccion" id="ubicacion">
+  <div class="contenedor dos-columnas">
+    <div class="revelar">
+      <span class="etiqueta etiqueta--naranja">Dónde estamos</span>
+      <h2>A unos pasos de Calzada Zavaleta</h2>
+      <address class="direccion">
+        Calzada Zavaleta No. 124<br>
+        Col. Santa Cruz Buena Vista<br>
+        C.P. 72154, Puebla, Pue.
+      </address>
+      <ul class="datos-contacto">
+        <li><svg aria-hidden="true"><use href="#i-reloj"></use></svg> <span>Horario: [COMPLETAR] lunes a viernes de __:__ a __:__</span></li>
+        <li><svg aria-hidden="true"><use href="#i-wa"></use></svg> <a href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Quiero agendar una visita a sus instalaciones.">WhatsApp: [COMPLETAR número]</a></li>
+      </ul>
+      <div class="acciones-fila">
+        <a class="btn btn--primario" target="_blank" rel="noopener"
+           href="https://www.google.com/maps/dir/?api=1&amp;destination=Calzada+Zavaleta+124%2C+Santa+Cruz+Buena+Vista%2C+72154+Puebla%2C+Pue.">
+          <svg aria-hidden="true"><use href="#i-pin"></use></svg> Cómo llegar
+        </a>
+        <a class="btn btn--fantasma" href="#contacto" data-cta="ubicacion">Agenda tu visita</a>
+      </div>
+    </div>
+
+    <!-- Fachada del mapa: el iframe pesado sólo se inyecta al hacer clic (performance) -->
+    <div class="mapa" id="mapa" data-src="https://www.google.com/maps?q=Calzada+Zavaleta+124,+Santa+Cruz+Buena+Vista,+72154+Puebla,+Pue.&amp;output=embed">
+      <button class="mapa__boton" type="button" id="mapa-boton">
+        <svg aria-hidden="true"><use href="#i-pin"></use></svg>
+        <span>Ver mapa de Google</span>
+        <small>Cargamos el mapa sólo si lo necesitas, para que el sitio abra más rápido.</small>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- =================================================================
+                      CTA FINAL + FORMULARIO
+================================================================== -->
+<section class="cta-final" id="contacto">
+  <div class="contenedor cta-final__grid">
+    <div class="cta-final__texto">
+      <h2>Agenda tu día de prueba</h2>
+      <p class="texto-grande">Conoce el espacio, saluda al equipo y deja que tu hijo juegue un rato con nosotros. Sin compromiso.</p>
+      <p class="nota nota--clara">*No aplica para CTE ni Curso de Verano.</p>
+      <a class="btn btn--wa btn--grande" href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Quiero agendar un día de prueba para mi hijo/a.">
+        <svg aria-hidden="true"><use href="#i-wa"></use></svg> Agendar por WhatsApp
+      </a>
+      <div class="redes">
+        <a href="https://www.instagram.com/pininos.pasitosfirmes/" target="_blank" rel="noopener" aria-label="Instagram de Pininos"><svg aria-hidden="true"><use href="#i-ig"></use></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61556187913609" target="_blank" rel="noopener" aria-label="Facebook de Pininos"><svg aria-hidden="true"><use href="#i-fb"></use></svg></a>
+      </div>
+    </div>
+
+    <!-- El formulario abre WhatsApp con el mensaje ya escrito (cero backend).
+         [COMPLETAR] Para recibirlo por correo ver README (Formspree / Netlify Forms). -->
+    <form class="formulario" id="formulario" novalidate>
+      <h3>O déjanos tus datos</h3>
+      <div class="campo">
+        <label for="f-nombre">Tu nombre</label>
+        <input id="f-nombre" name="nombre" type="text" autocomplete="name" required placeholder="María Pérez">
+      </div>
+      <div class="campo">
+        <label for="f-tel">Teléfono / WhatsApp</label>
+        <input id="f-tel" name="telefono" type="tel" inputmode="tel" autocomplete="tel" required placeholder="222 123 4567">
+      </div>
+      <div class="campo">
+        <label for="f-programa">Programa de interés</label>
+        <select id="f-programa" name="programa">
+          <option>Estimulación Temprana</option>
+          <option>Maternal AM</option>
+          <option>After School</option>
+          <option>Días de Club</option>
+          <option>Camps de vacaciones</option>
+          <option>CTE y días de asueto</option>
+          <option>Guardería / clases por hora</option>
+          <option>Aún no lo sé</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="f-mensaje">¿Qué te gustaría saber?</label>
+        <textarea id="f-mensaje" name="mensaje" rows="3" placeholder="Edad de mi hijo/a, horario que busco..."></textarea>
+      </div>
+      <!-- Anti-spam invisible -->
+      <p class="solo-lectores" aria-hidden="true"><label>No llenar<input type="text" name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+      <button class="btn btn--primario btn--grande formulario__enviar" type="submit">Enviar y agendar visita</button>
+      <p class="formulario__aviso" id="formulario-aviso" role="status" aria-live="polite"></p>
+      <p class="nota">Al enviar se abrirá WhatsApp con tu mensaje listo.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<!-- =================================================================
+                              FOOTER
+================================================================== -->
+<footer class="footer">
+  <div class="contenedor footer__grid">
+    <div>
+      <a class="logo logo--footer" href="#inicio" aria-label="Pininos Pasitos Firmes, ir al inicio">
+        <img src="img/favicon.svg" alt="" width="40" height="40" loading="lazy" aria-hidden="true">
+        <span class="logo__texto">
+          <span class="logo__marca" aria-hidden="true"><span>P</span><span>I</span><span>N</span><span>I</span><span>N</span><span>O</span><span>S</span></span>
+          <span class="logo__sub" aria-hidden="true">Pasitos Firmes</span>
+        </span>
+      </a>
+      <p class="footer__claim">Estimulación temprana, maternal y estancia infantil en Puebla. Un segundo hogar para tu bebé.</p>
+    </div>
+    <div>
+      <h4>Visítanos</h4>
+      <address class="direccion direccion--footer">
+        Calzada Zavaleta No. 124<br>Col. Santa Cruz Buena Vista<br>C.P. 72154, Puebla, Pue.
+      </address>
+    </div>
+    <div>
+      <h4>Síguenos</h4>
+      <div class="redes redes--footer">
+        <a href="https://www.instagram.com/pininos.pasitosfirmes/" target="_blank" rel="noopener" aria-label="Instagram de Pininos"><svg aria-hidden="true"><use href="#i-ig"></use></svg></a>
+        <a href="https://www.facebook.com/profile.php?id=61556187913609" target="_blank" rel="noopener" aria-label="Facebook de Pininos"><svg aria-hidden="true"><use href="#i-fb"></use></svg></a>
+        <a href="https://wa.me/52XXXXXXXXXX" data-wa-msg="¡Hola Pininos! Me gustaría más información." aria-label="WhatsApp de Pininos"><svg aria-hidden="true"><use href="#i-wa"></use></svg></a>
+      </div>
+      <a class="btn btn--primario" href="#contacto" data-cta="footer">Agenda tu visita</a>
+    </div>
+  </div>
+  <p class="footer__legal">© <span id="anio">2026</span> Pininos — Pasitos Firmes. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Botón flotante de WhatsApp: visible en todo el scroll -->
+<a class="wa-flotante" id="wa-flotante" href="https://wa.me/52XXXXXXXXXX"
+   data-wa-msg="¡Hola Pininos! Vi su sitio web y quiero información." target="_blank" rel="noopener"
+   aria-label="Escríbenos por WhatsApp">
+  <svg aria-hidden="true"><use href="#i-wa"></use></svg>
+</a>
+</body>
+</html>

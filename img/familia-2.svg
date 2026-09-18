@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="200" height="200" role="img" aria-label="Foto familia 2">
+  <rect width="200" height="200" fill="#E8F3FF"/>
+  <circle cx="33" cy="40" r="40" fill="#0251AF" opacity=".38"/>
+  <circle cx="166" cy="160" r="50" fill="#7AB80A" opacity=".30"/>
+  <circle cx="160" cy="33" r="22" fill="#0251AF" opacity=".22"/>
+  <svg x="58" y="44" width="84" height="84" viewBox="0 0 120 120">
+  <path d="M50 94v13M70 94v13M43 107h13M64 107h13" stroke="#F68404" stroke-width="5" stroke-linecap="round"/>
+  <path d="M60 22c-3-8 3-15 11-15-5 5-5 11-1 15z" fill="#0251AF"/>
+  <ellipse cx="60" cy="60" rx="38" ry="36" fill="#0251AF"/>
+  <ellipse cx="60" cy="72" rx="22" ry="20" fill="#A8D3FF"/>
+  <path d="M88 52c10 3 15 13 11 22-3 7-11 10-19 8 6-9 9-20 8-30z" fill="#023E86"/>
+  <circle cx="48" cy="52" r="6.5" fill="#FFFFFF"/>
+  <circle cx="72" cy="52" r="6.5" fill="#FFFFFF"/>
+  <circle cx="49" cy="53" r="3.2" fill="#1E2A32"/>
+  <circle cx="73" cy="53" r="3.2" fill="#1E2A32"/>
+  <path d="M60 60l11 7-11 7-11-7z" fill="#F68404"/>
+  <circle cx="36" cy="64" r="5" fill="#F75265" opacity=".45"/>
+  <circle cx="84" cy="64" r="5" fill="#F75265" opacity=".45"/>
+  </svg>
+  <text x="100" y="158" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="15" font-weight="bold" fill="#1E2A32" opacity=".85">[COMPLETAR]</text>
+  <text x="100" y="178" text-anchor="middle" font-family="Verdana,DejaVu Sans,sans-serif" font-size="12" fill="#1E2A32" opacity=".65">Foto familia 2</text>
+  <rect x="10" y="10" width="180" height="180" rx="19" fill="none" stroke="#FFFFFF" stroke-width="5" stroke-dasharray="16 13" opacity=".85"/>
+</svg>
